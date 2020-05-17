@@ -54,7 +54,129 @@ In addition to fields, both method parameters and local variables can be declare
 * A static nested class is one that has the static modifier applied. Because it is static, it must access the non-static members of its enclosing class through an object. That is, it cannot refer to non-static members of its enclosing class directly. Because of this restriction, static nested classes are seldom used.
 * The most important type of nested class is the inner class. An inner class is a non-static nested class. It has access to all of the variables and methods of its outer class and may refer to them directly in the same way that other non-static members of the outer class do.
 
-The most important type of nested class is the inner class. An inner class is a non-static nested class. It has access to all of the variables and methods of its outer class and may refer to them directly in the same way that other non-static members of the outer class do.
+* It is important to realize that an instance of Inner can be created only in the context of class Outer. The Java compiler generates an error message otherwise. In general, an inner class instance is often created by code within its enclosing scope, as the example does.
+
+
+
+
+* While nested classes are not applicable to all situations, they are particularly helpful when handling events.
+
+
+## Varargs: Variable-Length Arguments
+Situations that require that a variable number of arguments be passed to a method are not unusual. For example, a method that opens an Internet connection might take a user name, password, filename, protocol, and so on, but supply defaults if some of this information is not provided. In this situation, it would be convenient to pass only the arguments to which the defaults did not apply. Another example is the printf( ) method that is part of Java’s I/O library. As you will see in Chapter 20, it takes a variable number of arguments, which it formats and then outputs.
+
+Prior to JDK 5, variable-length arguments could be handled two ways, neither of which was particularly pleasing. First, if the maximum number of arguments was small and known, then you could create overloaded versions of the method, one for each way the method could be called. Although this works and is suitable for some cases, it applies to only a narrow class of situations.
+
+In cases where the maximum number of potential arguments was larger, or unknowable, a second approach was used in which the arguments were put into an array, and then the array was passed to the method. This approach is illustrated by the following program:
+
+
+```
+class PassArray { 
+  static void vaTest(int v[]) { 
+    System.out.print("Number of args: " + v.length + 
+                       " Contents: "); 
+ 
+    for(int x : v) 
+      System.out.print(x + " "); 
+ 
+    System.out.println(); 
+  } 
+ 
+  public static void main(String args[])  
+  { 
+    // Notice how an array must be created to 
+    // hold the arguments. 
+    int n1[] = { 10 }; 
+    int n2[] = { 1, 2, 3 }; 
+    int n3[] = { }; 
+ 
+    vaTest(n1); // 1 arg 
+    vaTest(n2); // 3 args 
+    vaTest(n3); // no args 
+  } 
+}
+
+```
+
+
+
+Same as above but with help of var args
+```
+class VarArgs { 
+ 
+  // vaTest() now uses a vararg. 
+  static void vaTest(int ... v) { 
+    System.out.print("Number of args: " + v.length + 
+                       " Contents: "); 
+ 
+    for(int x : v) 
+      System.out.print(x + " "); 
+ 
+    System.out.println(); 
+  } 
+ 
+  public static void main(String args[])  
+  { 
+ 
+    // Notice how vaTest() can be called with a 
+    // variable number of arguments. 
+    vaTest(10);      // 1 arg 
+    vaTest(1, 2, 3); // 3 args 
+    vaTest();        // no args 
+  } 
+}
+
+
+```
+
+
+```
+// Varargs and overloading. 
+class VarArgs3 { 
+ 
+  static void vaTest(int ... v) { 
+    System.out.print("vaTest(int ...): " + 
+                     "Number of args: " + v.length + 
+                     " Contents: "); 
+ 
+    for(int x : v) 
+      System.out.print(x + " "); 
+ 
+    System.out.println(); 
+  } 
+ 
+  static void vaTest(boolean ... v) { 
+    System.out.print("vaTest(boolean ...) " + 
+                     "Number of args: " + v.length + 
+                     " Contents: "); 
+ 
+    for(boolean x : v) 
+      System.out.print(x + " "); 
+ 
+    System.out.println(); 
+  } 
+ 
+  static void vaTest(String msg, int ... v) { 
+    System.out.print("vaTest(String, int ...): " + 
+                     msg + v.length + 
+                     " Contents: "); 
+ 
+    for(int x : v) 
+      System.out.print(x + " "); 
+ 
+    System.out.println(); 
+  } 
+ 
+  public static void main(String args[])  
+  { 
+    vaTest(1, 2, 3);  
+    vaTest("Testing: ", 10, 20); 
+    vaTest(true, false, false); 
+  } 
+}
+
+```
+
 
 
 
