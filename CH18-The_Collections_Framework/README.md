@@ -41,6 +41,9 @@ NullPointerException --> attempt is made to store a null object and null element
 IllegalArgumentException --> invalid argument is used.
 IllegalStateException -->  is thrown if an attempt is made to add an element to a fixed-length collection that is full.
 
+![test](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab18-1.jpg)
+
+
 
 
 
