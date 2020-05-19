@@ -42,6 +42,8 @@ Exceptions:
 * IllegalStateException -->  is thrown if an attempt is made to add an element to a fixed-length collection that is full.
 
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab18-1.jpg)
+![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab18-1a.jpg)
+
 
 
 
