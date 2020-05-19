@@ -45,6 +45,38 @@ Exceptions:
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab18-1a.jpg)
 
 
+## The List Interface
+
+* The List interface extends Collection and declares the behavior of a collection that stores a sequence of elements. Elements can be inserted or accessed by their position in the list, using a zero-based index. A list may contain duplicate elements. List is a generic interface that has this declaration:
+
+```
+interface List<E>
+```
+
+Exceptions:
+* IndexOutOfBoundsException --> if an invalid index is used.
+
+![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab18-2.jpg)
+
+## The Set Interface
+
+* The Set interface defines a set. It extends Collection and specifies the behavior of a collection that does not allow duplicate elements. Therefore, the add( ) method returns false if an attempt is made to add duplicate elements to a set. It does not specify any additional methods of its own.
+interface Set<E>
+
+## The SortedSet Interface
+
+* The SortedSet interface extends Set and declares the behavior of a set sorted in ascending order.
+
+```
+interface SortedSet<E>
+```
+
+
+
+
+
+
+
 
 
 
