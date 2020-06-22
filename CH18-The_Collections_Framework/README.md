@@ -128,7 +128,7 @@ TreeSet --> Implements a set stored in a tree. Extends AbstractSet.
 
 
 
-interface Collection
+interface Collection +(Comparator, RandomAccess, Iterator, ListIterator, Splitrator)
     interface List
     interface Set
         interface SortedSet
@@ -149,6 +149,25 @@ interface Collection
             Class HashSet extends ... implements Set
                 Class LinkedHashSet extends ... 
             Class TreeSet extends ... implements NavigableSet
+
+
+interface Map ( Map.Entry, Inner class of map )
+    SortedMap
+        NavigableMap
+
+    Class AbstractMap
+        EnumMap 
+        HashMap
+            LinkedHashMap
+        TreeMap 
+        WeakHashMap
+        IdentityHashMap
+
+
+
+
+
+
 
 
 ## Accessing a Collection via an Iterator
