@@ -1,30 +1,33 @@
 # The Stream API
 
 ## Stream Basics
+```
 * Purpose of stream is to operate on data source and not to store data source like collections.
 * Stream can be used to perform sql like operations like filter, sort, map on collection of entities.
+```
 
 ## Stream Interfaces
-
+```
 * Interface BaseStream (delaration and methods as below), defines basic funtionality available in all streams.
 * BaseStream extends the **AutoCloseable** interface.
+```
 
 * Declaration.
 ```
 interface BaseStream<T, S extends BaseStream<T, S>>
-```
-* Here, T specifies the type of the elements in the stream, and S specifies the type of stream that extends BaseStream.
 
-* Methods declared by basestrem
+* Here, T specifies the type of the elements in the stream, and S specifies the type of stream that extends BaseStream.
+```
+
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-1.jpg)
 
 
 ### Stream interface
-* Derived from basestream
+* Stread is Derived from basestream
 ```
 interface Stream<T>
-```
 * Here, T specifies the type of the elements in the stream. Because it is generic, Stream is used for all reference types.
+```
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-2.jpg)
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-2a.jpg)
 
@@ -36,16 +39,20 @@ interface Stream<T>
 ```
 
 **Intermediate operations**
+```
 * Intermediate operations produce another stream
 * Intermediate operations can be used to create a pipeline that performs a sequence of actions
 * Intermediate operations are executed **lazily.**
 * In **Stateless** operation, each element is processed independently of the others, e.g. filtering.
 * In a **stateful** operation, the processing of an element depend on aspects of the other elements. e.g. sorting
+```
 
+```
 * A stream can operate on object reference only, to operate on primitive types, following interfaces introduced.
 1) DoubleStream
 2) IntStream
 3) LongStream 
+```
 
 ## How to Obtain a Stream
 
