@@ -1,17 +1,56 @@
 # The Stream API
 
 ## Stream Basics
-
-A stream operates on a data source, such as an array or a collection. A stream, itself, never provides storage for the data. It simply moves data, possibly filtering, sorting, or otherwise operating on that data in the process. As a general rule, however, a stream operation by itself does not modify the data source. For example, sorting a stream does not change the order of the source. Rather, sorting a stream results in the creation of a new stream that produces the sorted result.
+* Purpose of stream is to operate on data source and not to store data source like collections.
+* Stream can be used to perform sql like operations like filter, sort, map on collection of entities.
 
 ## Stream Interfaces
 
-The stream API defines several stream interfaces, which are packaged in java.util.stream. At the foundation is BaseStream, which defines the basic functionality available in all streams. BaseStream is a generic interface declared like this:
+* Interface BaseStream (delaration and methods as below), defines basic funtionality available in all streams.
+* BaseStream extends the **AutoCloseable** interface.
 
+* Declaration.
 ```
 interface BaseStream<T, S extends BaseStream<T, S>>
 ```
-BaseStream extends the AutoCloseable interface; thus, a stream can be managed in a try-with-resources statement. In general, however, only those streams whose data source requires closing (such as those connected to a file) will need to be closed. In most cases, such as those in which the data source is a collection, there is no need to close the stream
+* Here, T specifies the type of the elements in the stream, and S specifies the type of stream that extends BaseStream.
+
+* Methods declared by basestrem
+![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-1.jpg)
+
+
+### Stream interface
+* Derived from basestream
+```
+interface Stream<T>
+```
+* Here, T specifies the type of the elements in the stream. Because it is generic, Stream is used for all reference types.
+![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-2.jpg)
+![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-2a.jpg)
+
+**Terminal operations**
+* A terminal operation consumes the stream.
+* Once a stream has been consumed, it cannot be reused.
+* Example min, max, count.
+
+**Intermediate operations**
+* Intermediate operations produce another stream
+* Intermediate operations can be used to create a pipeline that performs a sequence of actions
+* Intermediate operations are executed **lazily.**
+* In **Stateless** operation, each element is processed independently of the others, e.g. filtering.
+* In a **stateful** operation, the processing of an element depend on aspects of the other elements. e.g. sorting
+
+* A stream can operate on object reference only, to operate on primitive types, following interfaces introduced.
+1) DoubleStream
+2) IntStream
+3) LongStream 
+
+## How to Obtain a Stream
+
+
+
+
+
 
 
 ```

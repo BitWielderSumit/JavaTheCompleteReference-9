@@ -301,6 +301,8 @@ class VarCapture {
 
 ## Method References
 
+https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+
 There is an important feature related to lambda expressions called the method reference. A method reference provides a way to refer to a method without executing it. It relates to lambda expressions because it, too, requires a target type context that consists of a compatible functional interface. When evaluated, a method reference also creates an instance of the functional interface.
 
 ### Method References to static Methods
