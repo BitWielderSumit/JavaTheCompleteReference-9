@@ -56,13 +56,23 @@ interface Stream<T>
 
 ## How to Obtain a Stream
 
-
-
-
-
-
-
+### Obtain Stream from collection
 ```
+* Beginning with JDK 8, the Collection interface has been expanded to include two methods that obtain a stream from a collection.
+1) default Stream<E> stream( ) 
+2) default Stream<E> parallelStream( )
+* Because Collection is implemented by every collection, these methods can be used to obtain a stream from any collection class, such as ArrayList or HashSet.
+```
+
+### Obtain Stream from array
+```
+* To obtain stream from array use static method **stream** added in java 8 
+```
+
+
+
+
+
 interface Stream<T>
 ```
 
