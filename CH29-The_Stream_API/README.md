@@ -29,9 +29,11 @@ interface Stream<T>
 ![tab](https://github.com/SumitAgrawal03071989/JavaTheCompleteReference-9/blob/master/Resources/tab29-2a.jpg)
 
 **Terminal operations**
+```
 * A terminal operation consumes the stream.
 * Once a stream has been consumed, it cannot be reused.
 * Example min, max, count.
+```
 
 **Intermediate operations**
 * Intermediate operations produce another stream
